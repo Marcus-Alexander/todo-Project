@@ -6,7 +6,7 @@
 
     <!-- create Chore -->
     <div class="col text-center top pt-3">
-      <input [(ngModel)]="todoInput">
+      <input [(ngModel)]="todoInput" (keyup.enter) = "createTodo()">
       <button class="btn btn-danger ml-3" (click)="createTodo()">
         <b>
           +</b>
@@ -15,8 +15,9 @@
   </div>
   <!-- Chore  -->
   <div class="row">
-    <div ng-repeat="x in todoList" class="list-group-item list-group-item-warning container">
+    <div class="list-group-item list-group-item-warning container">
       <p *ngFor="let chore of todos">
+        <!-- string interpalation -->
         {{chore}}
         <!-- Completed -->
         <span class="padding">

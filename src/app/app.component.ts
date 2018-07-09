@@ -13,7 +13,11 @@ export class AppComponent {
 
   //Creates to do list
   createTodo() {
-    this.todos.push(this.todoInput);
+    let trimmedInput = this.todoInput.trim();
+    if (trimmedInput  !== "") {
+      this.todos.push(this.todoInput);
+    }
+
     this.todoInput = "";
   }
   //Edit to do list
@@ -22,7 +26,7 @@ export class AppComponent {
     let index = this.todos.indexOf(chore);
     console.log('Index of that chore:' + index);
 
-    this.todos[index] = prompt('New To Do:');
+    this.todos[index] = prompt('New To Do:', this.todos[index]);
   }
   //Delete to do
   deleteTodo(chore) {
