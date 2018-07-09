@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "todoProject": {
+    "todo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/todoProject",
+            "outputPath": "dist/todo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "todoProject:build"
+            "browserTarget": "todo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "todoProject:build:production"
+              "browserTarget": "todo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "todoProject:build"
+            "browserTarget": "todo:build"
           }
         },
         "test": {
@@ -95,7 +100,7 @@
         }
       }
     },
-    "todoProject-e2e": {
+    "todo-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "todoProject:serve"
+            "devServerTarget": "todo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "todoProject:serve:production"
+              "devServerTarget": "todo:serve:production"
             }
           }
         },
@@ -123,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "todoProject"
+  "defaultProject": "todo"
 }

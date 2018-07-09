@@ -1,0 +1,21 @@
+.padding {
+    float: right;
+}
+.top {
+    background: #02254e;
+    color: rgb(180, 185, 206);
+}
+.list-group-item {
+    color: #02243e;
+    font-family: 'Coda Caption', sans-serif;
+}
+
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#cbox3 {
+    /* color:blue; */
+    text-decoration: line-through;
+  }
