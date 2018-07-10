@@ -9,6 +9,7 @@ export class AppComponent {
   name = "Marcus";
   todoInput = '';
   todos = [];
+  deleteAllTodos = [];
   // User Inputs Name -> YourName's To Do List
 
   //Creates to do list
@@ -25,8 +26,16 @@ export class AppComponent {
     console.log('Chore that was clicked' + chore);
     let index = this.todos.indexOf(chore);
     console.log('Index of that chore:' + index);
-
+    
+    let tempTodoDesc = this.todos[index];
     this.todos[index] = prompt('New To Do:', this.todos[index]);
+    console.log(this.todos[index]);
+    if (this.todos[index] == null) {
+      this.todos[index] = tempTodoDesc;
+    }
+    console.log(this.todos[index]);
+
+
   }
   //Delete to do
   deleteTodo(chore) {

@@ -19,3 +19,8 @@ h2 {
     /* color:blue; */
     text-decoration: line-through;
   }
+.btn-orange {
+    background: orange;
+    color: white;
+    text-align: right;
+}
