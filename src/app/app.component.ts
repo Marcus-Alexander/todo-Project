@@ -6,20 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name = "Marcus";
+  myName = "Marcus";
   todoInput = '';
   todos = [];
-  deleteAllTodos = [];
+
   // User Inputs Name -> YourName's To Do List
 
   //Creates to do list
   createTodo() {
     let trimmedInput = this.todoInput.trim();
     if (trimmedInput  !== "") {
-      this.todos.push(this.todoInput);
+      this.todos.push({
+        isChecked: false,
+        name: this.todoInput,
+      });
     }
 
     this.todoInput = "";
+  }
+
+  checkOffTodo(chore) {
+    chore.isChecked = !chore.isChecked
+    console.log('hello');
   }
   //Edit to do list
   editTodo(chore) {
@@ -27,13 +35,11 @@ export class AppComponent {
     let index = this.todos.indexOf(chore);
     console.log('Index of that chore:' + index);
     
-    let tempTodoDesc = this.todos[index];
-    this.todos[index] = prompt('New To Do:', this.todos[index]);
-    console.log(this.todos[index]);
-    if (this.todos[index] == null) {
-      this.todos[index] = tempTodoDesc;
+    let tempTodoDesc = this.todos[index].name;
+    this.todos[index].name = prompt('New To Do:', this.todos[index].name);
+    if (this.todos[index].name == null) {
+      this.todos[index].name = tempTodoDesc;
     }
-    console.log(this.todos[index]);
 
 
   }
@@ -43,4 +49,9 @@ export class AppComponent {
     let index = this.todos.indexOf(chore);
     this.todos.splice(index, 1);
   }
+
+  deleteTodoAll() {
+    this.todos = [];
+  }
 }
+

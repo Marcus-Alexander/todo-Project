@@ -24,3 +24,7 @@ h2 {
     color: white;
     text-align: right;
 }
+
+.strike {
+    text-decoration: line-through;
+}

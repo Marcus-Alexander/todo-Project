@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col top">
-      <h2 class="text-center my-5"> {{ name }}'s Todo List</h2>
+      <h2 class="text-center my-5"> {{ myName }}'s Todo List</h2>
     </div>
 
     <!-- create Chore -->
@@ -17,24 +17,26 @@
   <div class="row">
     <div class="list-group-item list-group-item-warning container">
       <p *ngFor="let chore of todos">
-        <!-- string interpalation -->
-        {{chore}}
+
+        <span [ngClass]="{'strike': chore.isChecked}">{{ chore.name }}</span>
+
         <!-- Completed -->
         <span class="padding">
-          <input class="form-check-input px5" type="checkbox" value="" id="defaultCheck1">
-          <!-- Edit -->
+          <input class="form-check-input px5" type="checkbox" value="" id="defaultCheck1" [(ngModel)] = "chore.isChecked">
+      
+
           <i class="far fa-edit" (click)="editTodo(chore)"></i>
           <!-- Deletes Chore -->
           <i class="far fa-trash-alt" (click)="deleteTodo(chore)"></i>
         </span>
       </p>
       <hr>
-    </div>
-
-    <div class="row">
-      <div class="col text-right mb-4">
-        <button class="btn btn-orange" (click) ="deleteTodo()">Delete All</button>
+      <div class="row">
+        <div class="col text-right mb-4">
+          <button class="btn btn-orange" (click) ="deleteTodoAll()">Delete All</button>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
